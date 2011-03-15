@@ -30,7 +30,7 @@
           <execution>
             <id>scala-compile-first</id>
             <phase>process-resources</phase>
-            <goals>
+            <goals> 
               <goal>add-source</goal>
               <goal>compile</goal>
             </goals>
