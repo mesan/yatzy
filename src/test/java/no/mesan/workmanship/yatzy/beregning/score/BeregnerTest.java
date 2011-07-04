@@ -1,4 +1,4 @@
-package no.mesan.workmanship.yatzy.beregning;
+package no.mesan.workmanship.yatzy.beregning.score;
 
 import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 import org.junit.Test;

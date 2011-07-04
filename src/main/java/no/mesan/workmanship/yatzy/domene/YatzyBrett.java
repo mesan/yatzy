@@ -1,39 +1,41 @@
 package no.mesan.workmanship.yatzy.domene;
 
-public interface YatzyBrett {
-    /**
-     * Tar imot et kast og en kombinasjon. Plasserer kastet på denne kombinasjonen om mulig, kaster IllegalArgumentException
-     * om det ikke er mulig.
-     *
-     * @param kast Ferdig trillet kast.
-     * @param kombinasjon Kombinasjon som skal brukes.
-     */
-    void plasserKast(Kast kast, Yatzykombinasjon kombinasjon);
+import no.mesan.workmanship.yatzy.brett.BonusBeregner;
 
-    /**
-     * Henter poengsum for gitt kombinasjon.
-     *
-     * @param kombinasjon Kombinasjon.
-     * @return Poengsum for kombinasjon. 0 returneres dersom kast ikke er plassert for kombinasjon.
-     */
-    int poengForKombinasjon(Yatzykombinasjon kombinasjon);
+public class YatzyBrett {
+    private static final int ANTALL_OVER= 6;
 
-    /**
-     * Regner ut poengsum for poeng over streken (1-6)
-     * @return Poengsum.
-     */
-    int sumOverStreken();
+    private final BonusBeregner bonusBeregner;
+    private final YatzyBrettPoeng yatzyBrettPoeng = new YatzyBrettPoeng();
+    private int antallOverStreken= 0;
+    private Poeng totalt= Poeng.NULL_POENG;
+    private Poeng bonus;
 
-    /**
-     * Regner ut bonussum. Gir 50 poeng dersom sum over streken er 63 eller bedre, 0 ellers.
-     * @return Bonussum.
-     */
-    int bonusSum();
+    public YatzyBrett(final BonusBeregner beregner) {
+        this.bonusBeregner= beregner;
+    }
 
-    /**
-     * Regner ut totalsum for hele brettet.
-     *
-     * @return Total poengsum oppnådd.
-     */
-    int totalSum();
+    public void settPoeng(final Yatzykombinasjon yatzykombinasjon, final Kast kast) {
+        this.totalt= this.totalt.add(this.yatzyBrettPoeng.settPoeng(yatzykombinasjon, kast));
+        if ( skalBeregneBonus(yatzykombinasjon) ) beregnBonus();
+    }
+
+    private void beregnBonus() {
+        this.bonus= this.bonusBeregner.beregn(this);
+        this.totalt= this.totalt.add(this.bonus);
+    }
+
+    public Poeng poeng(final Yatzykombinasjon yatzykombinasjon) {
+        if ( this.yatzyBrettPoeng.har(yatzykombinasjon)) return this.yatzyBrettPoeng.verdi(yatzykombinasjon);
+        return Poeng.NULL_POENG;
+    }
+
+    public Poeng poeng() { return this.totalt; }
+    public boolean har(final Yatzykombinasjon yatzykombinasjon) { return this.yatzyBrettPoeng.har(yatzykombinasjon); }
+
+    private boolean skalBeregneBonus(final Yatzykombinasjon yatzykombinasjon) {
+        return yatzykombinasjon.overStreken()
+               && ++this.antallOverStreken==ANTALL_OVER
+               && this.bonus==null;
+    }
 }

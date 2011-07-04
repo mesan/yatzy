@@ -1,14 +1,21 @@
 package no.mesan.workmanship.yatzy.domene;
 
+import no.mesan.workmanship.yatzy.annotations.Immutable;
+
+@Immutable
 public class Terning {
+    private final TerningPoeng verdi;
 
-    private Integer verdi;
+    public Terning() { this(TerningPoeng.kast()); }
 
-    public Terning(Integer verdi) {
-        this.verdi = verdi;
+    public Terning(final TerningPoeng kast) {
+        this.verdi= kast;
     }
 
-    public Integer asInt() {
-        return verdi;
+    public TerningPoeng verdi() { return this.verdi; }
+
+    @Override
+    public String toString() {
+        return "[" + this.verdi() + "]";
     }
 }

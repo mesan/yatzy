@@ -2,11 +2,13 @@ package no.mesan.workmanship.yatzy.presentasjon;
 
 import javax.swing.Action;
 
-import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
-
 import com.jgoodies.binding.list.SelectionInList;
 import com.jgoodies.binding.value.ComponentValueModel;
 
+import no.mesan.workmanship.yatzy.annotations.Unntak;
+import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
+
+@Unntak
 public interface YatzyPresentasjonsmodell {
 	SelectionInList<Yatzykombinasjon> kombinasjonModel();
 	ComponentValueModel[] terningModeller();
