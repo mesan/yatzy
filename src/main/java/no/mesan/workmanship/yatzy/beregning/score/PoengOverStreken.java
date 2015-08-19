@@ -8,6 +8,7 @@ import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
 public class PoengOverStreken implements KastBeregner {
     private final TerningPoeng verdi;
+
     private PoengOverStreken(final TerningPoeng verdi) { this.verdi=verdi; }
 
     public static final KastBeregner P_1= new PoengOverStreken(TerningPoeng.EN);
@@ -21,8 +22,12 @@ public class PoengOverStreken implements KastBeregner {
     public Poeng beregnPoengForKast(final Kast kast) {
         int poeng= 0;
         for (final Terning terning : kast) {
-            if ( terning.verdi().equals(this.verdi) ) poeng+= this.verdi.score;
+            poeng += plukkPoeng(terning.verdi());
         }
         return new Poeng(poeng);
+    }
+
+    private int plukkPoeng(final TerningPoeng verdi) {
+        return verdi.equals(this.verdi)? this.verdi.score : 0;
     }
 }

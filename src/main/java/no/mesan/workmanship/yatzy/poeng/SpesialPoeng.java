@@ -12,7 +12,7 @@ public enum SpesialPoeng {
 
     public final Poeng poeng;
 
-    private SpesialPoeng(final int poeng) {
+    SpesialPoeng(final int poeng) {
         this.poeng= new Poeng(poeng);
     }
 }

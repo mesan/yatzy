@@ -13,7 +13,7 @@ import static no.mesan.workmanship.yatzy.domene.TestTerning._6;
 
 import static org.junit.Assert.assertEquals;
 
-public class YatzykombinasjonTest {
+public class YatzyKombinasjonTest {
     private static final TestKast LITEN_STRAIGHT= new TestKast(_1, _2, _3, _4, _5);
     private static final TestKast STOR_STRAIGHT= new TestKast(_6, _2, _3, _4, _5);
     private static final TestKast STRAIGHT= LITEN_STRAIGHT;

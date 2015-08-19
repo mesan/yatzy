@@ -1,18 +1,20 @@
 package no.mesan.workmanship.yatzy.beregning;
 
+import no.mesan.workmanship.yatzy.annotations.Unntak;
 import no.mesan.workmanship.yatzy.domene.Kast;
 import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 
 /**
- * Klasse som er i stand til √• sette poeng p√• alle typer kast.
+ * Klasse som er i stand til Â sette poeng Â alle typer kast.
  */
 public interface YatzyBeregner {
     /**
      * Beregn poeng for dette kastet gitt valgt beregning.
      *
-     * @param yatzykombinasjon √ònsket beregning
+     * @param yatzykombinasjon ÿnsket beregning
      * @param terninger Terningen er kastet!
-     * @return Poengsum -- gjort av hensyn til GUI -- FIXME !!!!!
+     * @return Poengsum
      */
-	Integer beregnPoengsum(Yatzykombinasjon yatzykombinasjon, Kast terninger);
+    @Unntak("Returnerer Integer -- gjort av hensyn til GUI -- FIXME !!!!!")
+    Integer beregnPoengsum(Yatzykombinasjon yatzykombinasjon, Kast terninger);
 }

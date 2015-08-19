@@ -1,10 +1,8 @@
 package no.mesan.workmanship.yatzy.domene;
 
-import no.mesan.workmanship.yatzy.domene.Terning;
-import no.mesan.workmanship.yatzy.domene.TerningPoeng;
-
 public class TestTerning extends Terning {
 
+    public static final Terning _0= new TestTerning(TerningPoeng.INGEN);
     public static final Terning _1= new TestTerning(TerningPoeng.EN);
     public static final Terning _2= new TestTerning(TerningPoeng.TO);
     public static final Terning _3= new TestTerning(TerningPoeng.TRE);

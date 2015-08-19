@@ -1,15 +1,11 @@
 package no.mesan.workmanship.yatzy.beregning.score;
 
-import org.junit.Test;
-
-import no.mesan.workmanship.yatzy.beregning.score.ResultatPar;
-import no.mesan.workmanship.yatzy.beregning.score.SjekkLike;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 import no.mesan.workmanship.yatzy.domene.TestKast;
-
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 import static no.mesan.workmanship.yatzy.domene.TestTerning.*;
+import static org.junit.Assert.*;
 
 public class SjekkLikeTest {
     private static final TestKast STRAIGHT= new TestKast(_1, _2, _3, _4, _5);
@@ -18,7 +14,7 @@ public class SjekkLikeTest {
 
     @Test
     public void beste_par_finnes_ikke() {
-        assertNull(SjekkLike.bestePar(STRAIGHT));
+        assertEquals(TerningPoeng.INGEN, SjekkLike.bestePar(STRAIGHT));
     }
 
     @Test
@@ -33,7 +29,7 @@ public class SjekkLikeTest {
 
     @Test
     public void har_ikke_3like() {
-        assertNull(SjekkLike.trippel(STRAIGHT));
+        assertEquals(TerningPoeng.INGEN, SjekkLike.trippel(STRAIGHT));
     }
 
     @Test
@@ -44,7 +40,7 @@ public class SjekkLikeTest {
 
     @Test
     public void har_ikke_4like() {
-        assertNull(SjekkLike.kvadruppel(HUS));
+        assertEquals(TerningPoeng.INGEN, SjekkLike.kvadruppel(HUS));
     }
 
     @Test
@@ -54,7 +50,7 @@ public class SjekkLikeTest {
 
     @Test
     public void har_ikke_yatzy() {
-        assertNull(SjekkLike.yatzy(HUS));
+        assertEquals(TerningPoeng.INGEN, SjekkLike.yatzy(HUS));
     }
 
     @Test
@@ -81,6 +77,6 @@ public class SjekkLikeTest {
     @Test
     public void har_ikke_hus() {
         final ResultatPar hus= SjekkLike.hus(STRAIGHT);
-        assertNull(hus);
+        assertEquals(ResultatPar.ingen(), hus);
     }
 }

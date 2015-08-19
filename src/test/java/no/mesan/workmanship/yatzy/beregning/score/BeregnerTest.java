@@ -1,12 +1,6 @@
 package no.mesan.workmanship.yatzy.beregning.score;
 
-import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 import org.junit.Test;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mockito;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
 
 public class BeregnerTest {
 

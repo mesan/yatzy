@@ -2,7 +2,8 @@ package no.mesan.workmanship.yatzy.domene;
 
 import no.mesan.workmanship.yatzy.annotations.Immutable;
 
-@Immutable public final class Poeng implements Comparable<Poeng> {
+@Immutable
+public final class Poeng implements Comparable<Poeng> {
     public static final Poeng NULL_POENG= new Poeng(0);
 
     private final int score;
@@ -28,7 +29,9 @@ import no.mesan.workmanship.yatzy.annotations.Immutable;
 
     @Override
     public int compareTo(final Poeng other) {
-        return Integer.valueOf(this.score).compareTo(Integer.valueOf(other.score));
+        final Integer thisInt = Integer.valueOf(this.score);
+        final Integer otherInt = Integer.valueOf(other.score);
+        return thisInt.compareTo(otherInt);
     }
 
     public int asInt() { return this.score; }

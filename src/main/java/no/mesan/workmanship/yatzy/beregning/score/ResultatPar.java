@@ -6,27 +6,40 @@ import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
 @Immutable
 abstract class ResultatPar {
-    protected final TerningPoeng maksimalVerdi;
-    protected final TerningPoeng minimumsVerdi;
+    static final int TO_AV = 2;
+    static final int TRE_AV = 3;
 
-    protected ResultatPar(final TerningPoeng minimum,
-                          final TerningPoeng maksimum) {
+    final TerningPoeng maksimalVerdi;
+    final TerningPoeng minimumsVerdi;
+
+    private static class IngenResultat extends ResultatPar {
+        IngenResultat() { super(TerningPoeng.INGEN, TerningPoeng.INGEN); }
+    }
+
+    private final static ResultatPar INGEN= new IngenResultat();
+
+    ResultatPar(final TerningPoeng minimum,
+                final TerningPoeng maksimum) {
         this.maksimalVerdi= maksimum;
         this.minimumsVerdi= minimum;
     }
+
+    Poeng sum() { return Poeng.NULL_POENG; }
+
+    static ResultatPar ingen() { return INGEN; }
 }
+
 
 class HusResultat extends ResultatPar  {
     HusResultat(final TerningPoeng dobbel, final TerningPoeng trippel) {
         super(dobbel, trippel);
     }
-    Poeng sum() { return new Poeng(2*this.minimumsVerdi.score + 3*this.maksimalVerdi.score); }
+    @Override Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TRE_AV *this.maksimalVerdi.score); }
 }
-
 
 class Par2Resultat extends ResultatPar  {
     Par2Resultat(final TerningPoeng par1, final TerningPoeng par2) {
         super(par1, par2);
     }
-    Poeng sum() { return new Poeng(2*this.minimumsVerdi.score + 2*this.maksimalVerdi.score); }
+    @Override Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TO_AV *this.maksimalVerdi.score); }
 }

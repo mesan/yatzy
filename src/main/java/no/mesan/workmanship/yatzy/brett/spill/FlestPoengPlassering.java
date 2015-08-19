@@ -12,16 +12,17 @@ import no.mesan.workmanship.yatzy.domene.YatzyBrett;
 import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 
 public class FlestPoengPlassering implements Plassering {
-    protected final Map<Yatzykombinasjon, Poeng> poeng= new HashMap<Yatzykombinasjon, Poeng>();
+    final Map<Yatzykombinasjon, Poeng> poeng= new HashMap<>();
 
     @Override
     public Yatzykombinasjon velgPlassering(final YatzyBrett yatzyBrett, final Kast kast) {
         sjekkAlle(yatzyBrett, kast);
         rescore();
-        return finnBeste((Yatzykombinasjon) null, new Poeng(-1), new LinkedList<Yatzykombinasjon>(this.poeng.keySet()));
+        return finnBeste(null, new Poeng(-1),
+                         new LinkedList<>(this.poeng.keySet()));
     }
 
-    protected void rescore() { return; }
+    void rescore() { return; }
 
     private Yatzykombinasjon finnBeste(final Yatzykombinasjon bestHittil, final Poeng maxScore, final List<Yatzykombinasjon> rest) {
         if ( rest.size() < 1 ) return bestHittil;

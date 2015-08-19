@@ -6,12 +6,12 @@ import no.mesan.workmanship.yatzy.annotations.Immutable;
 
 @Immutable
 public enum TerningPoeng {
-    EN(1), TO(2), TRE(3), FIRE(4), FEM(5), SEKS(6);
+    INGEN(0), EN(1), TO(2), TRE(3), FIRE(4), FEM(5), SEKS(6);
 
     public final int score;
     private final static Random seed = new Random();
 
-    private TerningPoeng(final int score) { this.score= score; }
+    TerningPoeng(final int score) { this.score= score; }
 
     public static TerningPoeng kast() {
         final TerningPoeng[] val= TerningPoeng.values();
@@ -27,6 +27,8 @@ public enum TerningPoeng {
             case 5: return TerningPoeng.FEM;
             case 6: return TerningPoeng.SEKS;
         }
-        return null;
+        return TerningPoeng.INGEN;
     }
+
+    public boolean harVerdi() { return score!=0; }
 }

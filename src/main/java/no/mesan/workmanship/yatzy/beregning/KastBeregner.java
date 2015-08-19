@@ -3,15 +3,13 @@ package no.mesan.workmanship.yatzy.beregning;
 import no.mesan.workmanship.yatzy.domene.Kast;
 import no.mesan.workmanship.yatzy.domene.Poeng;
 
-/**
- * Klasse som er i stand til Ã¥ sette poeng pÃ¥ et gitt kast i <i>sin</i>
- * kontekst.
- */
+/** Klasse som er i stand til å sette poeng på et gitt kast i <i>sin</i> kontekst. */
+@FunctionalInterface
 public interface KastBeregner {
 
     /**
-     * Sett poeng pÃ¥ et gitt kast, poengsummen vil avhenge av hvilken
-     * linje det skal skrives pÃ¥.
+     * Sett poeng på et gitt kast,  poengsummen vil avhenge av hvilken
+     * linje det skal skrives på.
      *
      * @param kast Terningene
      * @return Resultatet

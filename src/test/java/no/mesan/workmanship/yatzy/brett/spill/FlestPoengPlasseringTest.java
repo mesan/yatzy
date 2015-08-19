@@ -19,8 +19,8 @@ import static no.mesan.workmanship.yatzy.domene.TestTerning.*;
 import static no.mesan.workmanship.yatzy.domene.Yatzykombinasjon.*;
 
 public class FlestPoengPlasseringTest {
-    protected Plassering plassering;
-    protected YatzyBrett yatzyBrett;
+    Plassering plassering;
+    YatzyBrett yatzyBrett;
 
     @Before
     public void setup() {
@@ -34,7 +34,7 @@ public class FlestPoengPlasseringTest {
         final Yatzykombinasjon type0= this.plassering.velgPlassering(this.yatzyBrett, TESTYATZY);
         assertEquals(YATZY, type0);
         this.yatzyBrett.settPoeng(YATZY, TESTYATZY);
-        final Set<Yatzykombinasjon> mulige= new HashSet<Yatzykombinasjon>();
+        final Set<Yatzykombinasjon> mulige= new HashSet<>();
         // 10 poeng
         for (int i= 0; i < 3; i++) {
             final Yatzykombinasjon yatzykombinasjon= this.plassering.velgPlassering(this.yatzyBrett, TESTYATZY);
@@ -74,7 +74,7 @@ public class FlestPoengPlasseringTest {
     private static final TestKast TESTHUS= new TestKast(_2, _3, _3, _2, _2);
     @Test
     public void valg_for_hus() {
-        final Set<Yatzykombinasjon> mulige= new HashSet<Yatzykombinasjon>();
+        final Set<Yatzykombinasjon> mulige= new HashSet<>();
         // 12 poeng
         for (int i= 0; i < 2; i++) {
             final Yatzykombinasjon yatzykombinasjon= this.plassering.velgPlassering(this.yatzyBrett, TESTHUS);
@@ -100,7 +100,7 @@ public class FlestPoengPlasseringTest {
     private static final TestKast TESTLITEN= new TestKast(_1, _2, _3, _4, _5);
     @Test
     public void valg_for_straight() {
-        final Set<Yatzykombinasjon> mulige= new HashSet<Yatzykombinasjon>();
+        final Set<Yatzykombinasjon> mulige= new HashSet<>();
         // 15 poeng
         for (int i= 0; i < 2; i++) {
             final Yatzykombinasjon yatzykombinasjon= this.plassering.velgPlassering(this.yatzyBrett, TESTLITEN);
@@ -126,7 +126,7 @@ public class FlestPoengPlasseringTest {
     private static final TestKast TESTSKROT= new TestKast(_1, _2, _3, _4, _6);
     @Test
     public void valg_for_skrot() {
-        final Set<Yatzykombinasjon> mulige= new HashSet<Yatzykombinasjon>();
+        final Set<Yatzykombinasjon> mulige= new HashSet<>();
         for (int i= 0; i < 6; i++) {
             final Yatzykombinasjon yatzykombinasjon= this.plassering.velgPlassering(this.yatzyBrett, TESTSKROT);
             mulige.add(yatzykombinasjon);

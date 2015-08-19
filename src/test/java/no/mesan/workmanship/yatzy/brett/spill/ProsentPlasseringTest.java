@@ -33,7 +33,7 @@ public class ProsentPlasseringTest extends FlestPoengPlasseringTest {
         final Yatzykombinasjon type0= this.plassering.velgPlassering(this.yatzyBrett, TESTYATZY);
         assertEquals(YATZY, type0);
         this.yatzyBrett.settPoeng(YATZY, TESTYATZY);
-        final Set<Yatzykombinasjon> mulige= new HashSet<Yatzykombinasjon>();
+        final Set<Yatzykombinasjon> mulige= new HashSet<>();
         // 10 poeng
         final Yatzykombinasjon type1= this.plassering.velgPlassering(this.yatzyBrett, TESTYATZY);
         assertEquals(TOERE, type1);

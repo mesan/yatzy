@@ -1,14 +1,11 @@
 package no.mesan.workmanship.yatzy.beregning.score;
 
-import org.junit.Test;
-
-import no.mesan.workmanship.yatzy.beregning.score.ResultatSett;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 import no.mesan.workmanship.yatzy.domene.TestKast;
+import org.junit.Test;
 
 import static no.mesan.workmanship.yatzy.domene.TestTerning.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ResultatSettTest {
     private static final TestKast STRAIGHT= new TestKast(_1, _2, _3, _4, _5);
@@ -18,7 +15,7 @@ public class ResultatSettTest {
     public void straight_gir_1_hver() {
         final ResultatSett res= new ResultatSett(STRAIGHT);
         for (final TerningPoeng tp : TerningPoeng.values()) {
-            if ( tp.equals(_6.verdi()) ) continue;
+            if ( tp.equals(_6.verdi()) || tp.equals(_0.verdi()) ) continue;
             assertEquals(tp+"...", 1, res.count(tp));
         }
     }

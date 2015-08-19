@@ -4,5 +4,5 @@ import no.mesan.workmanship.yatzy.domene.Poeng;
 import no.mesan.workmanship.yatzy.domene.YatzyBrett;
 
 public interface BonusBeregner {
-    public Poeng beregn(YatzyBrett yatzyBrett);
+    Poeng beregn(YatzyBrett yatzyBrett);
 }
