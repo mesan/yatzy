@@ -1,14 +1,11 @@
 package no.mesan.workmanship.yatzy.beregning.score;
 
-import org.junit.Test;
-
-import no.mesan.workmanship.yatzy.beregning.score.PoengSjanse;
 import no.mesan.workmanship.yatzy.domene.Poeng;
 import no.mesan.workmanship.yatzy.domene.TestKast;
-
-import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 import static no.mesan.workmanship.yatzy.domene.TestTerning.*;
+import static org.junit.Assert.assertEquals;
 
 public class PoengSjanseTest {
     private static final TestKast STRAIGHT= new TestKast(_1, _2, _3, _4, _5);
@@ -17,8 +14,8 @@ public class PoengSjanseTest {
 
     @Test
     public void testLitt() {
-        assertEquals(new Poeng(15), PoengSjanse.P_SJANSE.beregnPoengForKast(STRAIGHT));
-        assertEquals(new Poeng(12), PoengSjanse.P_SJANSE.beregnPoengForKast(HUS));
-        assertEquals(new Poeng(10), PoengSjanse.P_SJANSE.beregnPoengForKast(YATZY));
+        assertEquals(new Poeng(15), PoengUnderStreken.P_SJANSE.beregnPoengForKast(STRAIGHT));
+        assertEquals(new Poeng(12), PoengUnderStreken.P_SJANSE.beregnPoengForKast(HUS));
+        assertEquals(new Poeng(10), PoengUnderStreken.P_SJANSE.beregnPoengForKast(YATZY));
     }
 }

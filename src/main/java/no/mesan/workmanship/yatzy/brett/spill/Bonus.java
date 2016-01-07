@@ -9,7 +9,7 @@ import static no.mesan.workmanship.yatzy.domene.Yatzykombinasjon.*;
 import static no.mesan.workmanship.yatzy.poeng.SpesialPoeng.*;
 
 @Immutable
-public class Bonus implements BonusBeregner {
+public final class Bonus implements BonusBeregner {
     public static final Bonus ORDINAR= new Bonus(ORDINAR_BONUS.poeng);
     public static final Bonus TVUNGEN= new Bonus(TVUNGEN_BONUS.poeng);
 
@@ -17,7 +17,7 @@ public class Bonus implements BonusBeregner {
     private Bonus(final Poeng poeng) { this.bonuskrav= poeng; }
 
     @Override
-    public Poeng beregn(final YatzyBrett yatzyBrett) {
+    public final Poeng beregn(final YatzyBrett yatzyBrett) {
         return bonusOk(yatzyBrett)? BONUS_POENG.poeng : Poeng.NULL_POENG;
     }
 

@@ -3,11 +3,8 @@ package no.mesan.workmanship.yatzy.domene;
 import no.mesan.workmanship.yatzy.annotations.Immutable;
 import no.mesan.workmanship.yatzy.beregning.KastBeregner;
 
-import static no.mesan.workmanship.yatzy.beregning.score.PoengNLike.*;
 import static no.mesan.workmanship.yatzy.beregning.score.PoengOverStreken.*;
-import static no.mesan.workmanship.yatzy.beregning.score.PoengSjanse.P_SJANSE;
-import static no.mesan.workmanship.yatzy.beregning.score.PoengStraights.P_LITEN_STRAIGHT;
-import static no.mesan.workmanship.yatzy.beregning.score.PoengStraights.P_STOR_STRAIGHT;
+import static no.mesan.workmanship.yatzy.beregning.score.PoengUnderStreken.*;
 import static no.mesan.workmanship.yatzy.domene.Kast.ANTALL_TERNINGER;
 import static no.mesan.workmanship.yatzy.domene.TerningPoeng.*;
 import static no.mesan.workmanship.yatzy.poeng.SpesialPoeng.*;

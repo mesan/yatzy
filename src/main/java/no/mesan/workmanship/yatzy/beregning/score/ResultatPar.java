@@ -1,6 +1,7 @@
 package no.mesan.workmanship.yatzy.beregning.score;
 
 import no.mesan.workmanship.yatzy.annotations.Immutable;
+import no.mesan.workmanship.yatzy.annotations.Mangel;
 import no.mesan.workmanship.yatzy.domene.Poeng;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
@@ -26,20 +27,21 @@ abstract class ResultatPar {
 
     Poeng sum() { return Poeng.NULL_POENG; }
 
+    @Mangel("Static")
     static ResultatPar ingen() { return INGEN; }
 }
 
 
-class HusResultat extends ResultatPar  {
+final class HusResultat extends ResultatPar  {
     HusResultat(final TerningPoeng dobbel, final TerningPoeng trippel) {
         super(dobbel, trippel);
     }
-    @Override Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TRE_AV *this.maksimalVerdi.score); }
+    @Override final Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TRE_AV *this.maksimalVerdi.score); }
 }
 
-class Par2Resultat extends ResultatPar  {
+final class Par2Resultat extends ResultatPar  {
     Par2Resultat(final TerningPoeng par1, final TerningPoeng par2) {
         super(par1, par2);
     }
-    @Override Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TO_AV *this.maksimalVerdi.score); }
+    @Override final Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TO_AV *this.maksimalVerdi.score); }
 }

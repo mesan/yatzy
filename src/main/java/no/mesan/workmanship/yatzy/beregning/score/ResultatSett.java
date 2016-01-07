@@ -10,13 +10,11 @@ import no.mesan.workmanship.yatzy.domene.Terning;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
 @Immutable
-class ResultatSett implements Iterable<TerningPoeng> {
+final class ResultatSett implements Iterable<TerningPoeng> {
     private final Map<TerningPoeng, Integer> map= new HashMap<>();
 
     private ResultatSett() {
-        for (final TerningPoeng poeng : TerningPoeng.values()) {
-            this.map.put(poeng, 0);
-        }
+        for (final TerningPoeng poeng : TerningPoeng.values()) this.map.put(poeng, 0);
     }
 
     ResultatSett(final Iterable<Terning> kast) {
@@ -31,20 +29,20 @@ class ResultatSett implements Iterable<TerningPoeng> {
         this.map.putAll(copy);
     }
 
-    int count(final TerningPoeng poeng) {
+    final int count(final TerningPoeng poeng) {
         for (final TerningPoeng terning : this) {
             if ( terning.equals(poeng) ) return this.map.get(terning);
         }
         return 0;
     }
 
-    ResultatSett bruk(final TerningPoeng terning, final int antall) {
+    final ResultatSett bruk(final TerningPoeng terning, final int antall) {
         this.map.put(terning, this.map.get(terning) - antall);
         return new ResultatSett(this.map);
     }
 
     @Override
-    public Iterator<TerningPoeng> iterator() {
+    public final Iterator<TerningPoeng> iterator() {
         final Set<TerningPoeng> keySet= this.map.keySet();
         return keySet.iterator();
     }

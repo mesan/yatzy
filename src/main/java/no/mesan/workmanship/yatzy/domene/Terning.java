@@ -13,11 +13,11 @@ public class Terning {
         this.verdi= kast;
     }
 
-    public TerningPoeng verdi() { return this.verdi; }
+    public final TerningPoeng verdi() { return this.verdi; }
 
     @Override
     @Unntak("Gidder ikke lage konstanter for hakeparenteser...")
-    public String toString() {
+    public final String toString() {
         return "[" + this.verdi() + "]";
     }
 }

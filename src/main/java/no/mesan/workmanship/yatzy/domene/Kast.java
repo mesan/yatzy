@@ -13,7 +13,7 @@ public class Kast implements Iterable<Terning> {
     public Kast() { kast(); }
 
     public Kast(final Terning... terningArray) { // Laget pga presentasjonsmodellen...
-        if ( terningArray.length != ANTALL_TERNINGER ) throw new IllegalArgumentException("MÃ¥ ha 5 terninger...");
+        if ( terningArray.length != ANTALL_TERNINGER ) throw new IllegalArgumentException("MÃ ha 5 terninger...");
         int i= 0;
         for (final Terning terning : terningArray)  this.terninger[i++]= terning;
     }

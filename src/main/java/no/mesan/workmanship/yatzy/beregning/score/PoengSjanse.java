@@ -7,10 +7,6 @@ import no.mesan.workmanship.yatzy.domene.Terning;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
 public final class PoengSjanse implements KastBeregner {
-    private PoengSjanse() { /*EMPTY*/ }
-
-    public static final KastBeregner P_SJANSE= new PoengSjanse();
-
     @Override
     public Poeng beregnPoengForKast(final Kast kast) {
         int poeng= 0;

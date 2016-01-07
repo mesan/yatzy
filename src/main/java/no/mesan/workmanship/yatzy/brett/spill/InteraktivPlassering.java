@@ -7,8 +7,13 @@ import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 
 public class InteraktivPlassering implements Plassering {
 
+    private static final String TRAPPED = "Ingen steder å gå";
+
     @Override
     public Yatzykombinasjon velgPlassering(final YatzyBrett yatzyBrett, final Kast kast) {
-        return null; // TODO
+        for (final Yatzykombinasjon yatzykombinasjon : Yatzykombinasjon.values()) {
+            if ( !yatzyBrett.har(yatzykombinasjon) ) return yatzykombinasjon;
+        }
+        throw new RuntimeException(TRAPPED);
     }
 }
