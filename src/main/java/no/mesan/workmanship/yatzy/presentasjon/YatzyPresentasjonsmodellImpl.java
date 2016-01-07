@@ -150,7 +150,7 @@ public class YatzyPresentasjonsmodellImpl implements YatzyPresentasjonsmodell {
     }
 
     private Integer randKast() {
-        return Integer.valueOf((int)Math.ceil(Math.random() * 6));
+        return (int) Math.ceil(Math.random() * 6);
     }
 
     private Integer[] hentTerninger() {

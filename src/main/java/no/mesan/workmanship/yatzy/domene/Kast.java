@@ -28,7 +28,7 @@ public class Kast implements Iterable<Terning> {
     }
 
     public void hold(final boolean holdTerning, final Posisjon posisjon) {
-        this.hold[posisjon.ordinal()]= holdTerning;
+        this.hold[posisjon.ordinal()] = holdTerning;
     }
 
     @Override public Iterator<Terning> iterator() {

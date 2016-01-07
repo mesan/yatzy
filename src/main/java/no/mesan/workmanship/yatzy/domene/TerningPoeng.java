@@ -32,5 +32,5 @@ public enum TerningPoeng {
         return TerningPoeng.INGEN;
     }
 
-    public boolean harVerdi() { return score!=0; }
+    public boolean harVerdi() { return this.score != 0; }
 }

@@ -35,7 +35,7 @@ public class YatzyBrett {
 
     private boolean skalBeregneBonus(final Yatzykombinasjon yatzykombinasjon) {
         return yatzykombinasjon.overStreken()
-               && ++this.antallOverStreken==ANTALL_OVER
-               && this.bonus==null;
+                       && (++this.antallOverStreken == ANTALL_OVER)
+                       && (this.bonus == null);
     }
 }

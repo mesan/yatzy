@@ -16,25 +16,25 @@ import static org.junit.Assert.assertEquals;
 
 public class BonusTest {
     private static final Poeng BONUS= SpesialPoeng.BONUS_POENG.poeng;
-    private static final TestKast EN_TIL_TRE[][]= {
-            { new TestKast(_2, _1, _3, _2, _2),
-              new TestKast(_1, _1, _3, _2, _2),
-              new TestKast(_1, _1, _3, _2, _1) },
-            { new TestKast(_2, _1, _3, _1, _1),
-              new TestKast(_1, _1, _3, _2, _2),
-              new TestKast(_2, _1, _3, _2, _2) },
-            { new TestKast(_2, _1, _3, _2, _2),
-              new TestKast(_1, _3, _3, _2, _2),
-              new TestKast(_1, _3, _3, _3, _1) },
-            { new TestKast(_2, _4, _3, _2, _2),
-              new TestKast(_1, _1, _4, _4, _2),
-              new TestKast(_4, _1, _3, _4, _4) },
-            { new TestKast(_5, _1, _3, _2, _2),
-              new TestKast(_5, _1, _5, _2, _2),
-              new TestKast(_1, _1, _5, _5, _5) },
-            { new TestKast(_2, _1, _3, _2, _6),
-              new TestKast(_1, _1, _6, _6, _2),
-              new TestKast(_6, _1, _6, _6, _1) }};
+    private static final TestKast[][] EN_TIL_TRE = {
+            {new TestKast(_2, _1, _3, _2, _2),
+             new TestKast(_1, _1, _3, _2, _2),
+             new TestKast(_1, _1, _3, _2, _1)},
+            {new TestKast(_2, _1, _3, _1, _1),
+             new TestKast(_1, _1, _3, _2, _2),
+             new TestKast(_2, _1, _3, _2, _2)},
+            {new TestKast(_2, _1, _3, _2, _2),
+             new TestKast(_1, _3, _3, _2, _2),
+             new TestKast(_1, _3, _3, _3, _1)},
+            {new TestKast(_2, _4, _3, _2, _2),
+             new TestKast(_1, _1, _4, _4, _2),
+             new TestKast(_4, _1, _3, _4, _4)},
+            {new TestKast(_5, _1, _3, _2, _2),
+             new TestKast(_5, _1, _5, _2, _2),
+             new TestKast(_1, _1, _5, _5, _5)},
+            {new TestKast(_2, _1, _3, _2, _6),
+             new TestKast(_1, _1, _6, _6, _2),
+             new TestKast(_6, _1, _6, _6, _1)}};
 
     private YatzyBrett ordinar;
     private YatzyBrett tvungen;

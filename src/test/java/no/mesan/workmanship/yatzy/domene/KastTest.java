@@ -3,10 +3,6 @@ package no.mesan.workmanship.yatzy.domene;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import no.mesan.workmanship.yatzy.domene.Kast;
-import no.mesan.workmanship.yatzy.domene.Posisjon;
-import no.mesan.workmanship.yatzy.domene.Terning;
-
 import static no.mesan.workmanship.yatzy.domene.TestTerning.*;
 import static org.junit.Assert.assertEquals;
 
@@ -42,7 +38,7 @@ public class KastTest {
 
     @Test
     public void nyttKastSkalTaVarePaTerninger() throws Exception {
-        final int[] verdier = new int[]{5,2,3,1,4};
+        final int[] verdier = {5, 2, 3, 1, 4};
         final Kast kast = new TestKast(_5,_2,_3,_1,_4);
 
         int i = 0;
