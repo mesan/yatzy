@@ -5,15 +5,17 @@ import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 
 public final class ProsentPlassering extends FlestPoengPlassering {
 
-    private static final int DETTE_ER_TALLET_100 = 100;
+    private static final int PROSENT_ER_100 = 100;
+    private static final int STORT_TALL = 10000;
 
     @Override
     protected final void rescore() {
         for (final Yatzykombinasjon yatzykombinasjon : this.poeng.keySet()) {
             final Poeng antallPoeng= this.poeng.get(yatzykombinasjon);
             final int asInt= antallPoeng.asInt();
-            final int ekstra= DETTE_ER_TALLET_100 *asInt/yatzykombinasjon.maxPoeng().asInt();
-            this.poeng.put(yatzykombinasjon, new Poeng(asInt*10000+ekstra));
+            final Poeng maxForKombinasjon = yatzykombinasjon.maxPoeng();
+            final int ekstra= PROSENT_ER_100 *asInt/ maxForKombinasjon.asInt();
+            this.poeng.put(yatzykombinasjon, new Poeng(asInt* STORT_TALL +ekstra));
         }
     }
 }

@@ -5,6 +5,7 @@ import no.mesan.workmanship.yatzy.annotations.Immutable;
 @Immutable
 public final class Poeng implements Comparable<Poeng> {
     public static final Poeng NULL_POENG= new Poeng(0);
+    public static final int HASH_MAGIC = 31;
 
     private final int score;
     public Poeng(final int score) { this.score= score; }
@@ -18,7 +19,7 @@ public final class Poeng implements Comparable<Poeng> {
         return Integer.toString(this.score);
     }
 
-    @Override public int hashCode() { return 31*this.score; }
+    @Override public int hashCode() { return HASH_MAGIC *this.score; }
 
     @Override
     public boolean equals(final Object obj) {
@@ -27,8 +28,7 @@ public final class Poeng implements Comparable<Poeng> {
         return compareTo((Poeng)obj)==0;
     }
 
-    @Override
-    public int compareTo(final Poeng other) {
+    @Override public int compareTo(final Poeng other) {
         final Integer thisInt = Integer.valueOf(this.score);
         final Integer otherInt = Integer.valueOf(other.score);
         return thisInt.compareTo(otherInt);

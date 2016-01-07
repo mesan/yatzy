@@ -6,14 +6,14 @@ import no.mesan.workmanship.yatzy.annotations.Mangel;
 import no.mesan.workmanship.yatzy.domene.Kast;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
-@Mangel("statics over alt")
+@Mangel("statics over alt, diskutabel bruk av ints")
 final class SjekkLike {
     private static final List<TerningPoeng> REVERSE= Arrays.asList(TerningPoeng.values());
     static { Collections.reverse(REVERSE); }
 
     private static ResultatGruppe beste(final int antall, final ResultatSett kast,
                                         final List<TerningPoeng> list) {
-        if ( list.size()==0 ) return new ResultatGruppe(TerningPoeng.INGEN, kast);
+        if (list.isEmpty()) return new ResultatGruppe(TerningPoeng.INGEN, kast);
         final TerningPoeng poeng= list.get(0);
         if ( kast.count(poeng)>= antall ) {
             return new ResultatGruppe(poeng, kast.bruk(poeng, antall));

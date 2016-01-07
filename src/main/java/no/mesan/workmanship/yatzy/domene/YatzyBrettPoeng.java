@@ -3,8 +3,9 @@ package no.mesan.workmanship.yatzy.domene;
 import java.util.HashMap;
 import java.util.Map;
 
+import no.mesan.workmanship.yatzy.annotations.Mangel;
 
-class YatzyBrettPoeng {
+final class YatzyBrettPoeng {
     private final Map<Yatzykombinasjon, Poeng> resultater= new HashMap<>();
 
     Poeng settPoeng(final Yatzykombinasjon yatzykombinasjon, final Kast kast) {
@@ -14,8 +15,9 @@ class YatzyBrettPoeng {
         return poeng;
     }
 
+    @Mangel("Har null")
     boolean har(final Yatzykombinasjon yatzykombinasjon) {
-        return this.resultater.get(yatzykombinasjon)!=null;
+        return this.resultater.get(yatzykombinasjon) != null;
     }
 
     Poeng verdi(final Yatzykombinasjon yatzykombinasjon) {

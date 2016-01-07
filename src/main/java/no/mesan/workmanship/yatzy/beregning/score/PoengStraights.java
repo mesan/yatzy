@@ -16,7 +16,7 @@ public final class PoengStraights implements KastBeregner {
     private final Straights avType;
     private final SpesialPoeng poengSum;
 
-    PoengStraights(final Straights avType, SpesialPoeng poengSum) {
+    PoengStraights(final Straights avType, final SpesialPoeng poengSum) {
         this.avType = avType;
         this.poengSum= poengSum;
     }

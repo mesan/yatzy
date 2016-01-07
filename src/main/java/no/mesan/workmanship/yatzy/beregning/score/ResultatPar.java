@@ -5,6 +5,7 @@ import no.mesan.workmanship.yatzy.annotations.Mangel;
 import no.mesan.workmanship.yatzy.domene.Poeng;
 import no.mesan.workmanship.yatzy.domene.TerningPoeng;
 
+@Mangel("1 static metode")
 @Immutable
 abstract class ResultatPar {
     static final int TO_AV = 2;
@@ -17,7 +18,7 @@ abstract class ResultatPar {
         IngenResultat() { super(TerningPoeng.INGEN, TerningPoeng.INGEN); }
     }
 
-    private final static ResultatPar INGEN= new IngenResultat();
+    private static final ResultatPar INGEN= new IngenResultat();
 
     ResultatPar(final TerningPoeng minimum,
                 final TerningPoeng maksimum) {
@@ -27,19 +28,17 @@ abstract class ResultatPar {
 
     Poeng sum() { return Poeng.NULL_POENG; }
 
-    @Mangel("Static")
     static ResultatPar ingen() { return INGEN; }
 }
 
-
-final class HusResultat extends ResultatPar  {
+@Immutable final class HusResultat extends ResultatPar  {
     HusResultat(final TerningPoeng dobbel, final TerningPoeng trippel) {
         super(dobbel, trippel);
     }
     @Override final Poeng sum() { return new Poeng(TO_AV *this.minimumsVerdi.score + TRE_AV *this.maksimalVerdi.score); }
 }
 
-final class Par2Resultat extends ResultatPar  {
+@Immutable final class Par2Resultat extends ResultatPar  {
     Par2Resultat(final TerningPoeng par1, final TerningPoeng par2) {
         super(par1, par2);
     }

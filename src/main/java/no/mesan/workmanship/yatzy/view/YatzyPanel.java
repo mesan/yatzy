@@ -1,25 +1,14 @@
 package no.mesan.workmanship.yatzy.view;
 
-import java.awt.Dimension;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-
-import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
-import javax.swing.JFormattedTextField;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-
-import no.mesan.workmanship.yatzy.annotations.Unntak;
-import no.mesan.workmanship.yatzy.presentasjon.YatzyPresentasjonsmodell;
+import javax.swing.*;
+import java.awt.*;
 
 import com.jgoodies.binding.adapter.BasicComponentFactory;
 import com.jgoodies.binding.value.ComponentValueModel;
+import no.mesan.workmanship.yatzy.annotations.Unntak;
+import no.mesan.workmanship.yatzy.presentasjon.YatzyPresentasjonsmodell;
 
-@Unntak
+@Unntak("Blåser i presentasjonskoden - her gjelder ingen av reglene")
 @SuppressWarnings("serial")
 public class YatzyPanel extends JPanel {
 	private final JPanel pnlButtons = new JPanel();

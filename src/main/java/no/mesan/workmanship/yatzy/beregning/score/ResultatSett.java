@@ -29,6 +29,7 @@ final class ResultatSett implements Iterable<TerningPoeng> {
         this.map.putAll(copy);
     }
 
+    @Mangel("2 nivåer innrykk")
     final int count(final TerningPoeng poeng) {
         for (final TerningPoeng terning : this) {
             if ( terning.equals(poeng) ) return this.map.get(terning);
@@ -41,8 +42,7 @@ final class ResultatSett implements Iterable<TerningPoeng> {
         return new ResultatSett(this.map);
     }
 
-    @Override
-    public final Iterator<TerningPoeng> iterator() {
+    @Override public final Iterator<TerningPoeng> iterator() {
         final Set<TerningPoeng> keySet= this.map.keySet();
         return keySet.iterator();
     }

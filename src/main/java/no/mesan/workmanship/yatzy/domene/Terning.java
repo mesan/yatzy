@@ -3,8 +3,7 @@ package no.mesan.workmanship.yatzy.domene;
 import no.mesan.workmanship.yatzy.annotations.Immutable;
 import no.mesan.workmanship.yatzy.annotations.Unntak;
 
-@Immutable
-public class Terning {
+@Immutable public class Terning {
     private final TerningPoeng verdi;
 
     public Terning() { this(TerningPoeng.kast()); }

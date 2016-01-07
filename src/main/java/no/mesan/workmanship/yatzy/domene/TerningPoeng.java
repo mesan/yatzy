@@ -3,13 +3,14 @@ package no.mesan.workmanship.yatzy.domene;
 import java.util.Random;
 
 import no.mesan.workmanship.yatzy.annotations.Immutable;
+import no.mesan.workmanship.yatzy.annotations.Mangel;
 
 @Immutable
 public enum TerningPoeng {
     INGEN(0), EN(1), TO(2), TRE(3), FIRE(4), FEM(5), SEKS(6);
 
     public final int score;
-    private final static Random seed = new Random();
+    private static final Random seed = new Random();
 
     TerningPoeng(final int score) { this.score= score; }
 
@@ -18,6 +19,7 @@ public enum TerningPoeng {
         return val[seed.nextInt(val.length)];
     }
 
+    @Mangel("static")
     public static TerningPoeng int2terning(final int i) {
         switch (i) {
             case 1: return TerningPoeng.EN;

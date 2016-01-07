@@ -12,14 +12,14 @@ import no.mesan.workmanship.yatzy.domene.YatzyBrett;
 import no.mesan.workmanship.yatzy.domene.Yatzykombinasjon;
 
 public class FlestPoengPlassering implements Plassering {
+    private static final int WORSE_THAN_ANY = -1;
     final Map<Yatzykombinasjon, Poeng> poeng= new HashMap<>();
 
     @Override
     public Yatzykombinasjon velgPlassering(final YatzyBrett yatzyBrett, final Kast kast) {
         sjekkAlle(yatzyBrett, kast);
         rescore();
-        return finnBeste(null, new Poeng(-1),
-                         new LinkedList<>(this.poeng.keySet()));
+        return finnBeste(null, new Poeng(WORSE_THAN_ANY), new LinkedList<>(this.poeng.keySet()));
     }
 
     void rescore() { return; }

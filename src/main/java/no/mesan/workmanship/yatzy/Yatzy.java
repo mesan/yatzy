@@ -3,10 +3,12 @@ package no.mesan.workmanship.yatzy;
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 
+import no.mesan.workmanship.yatzy.annotations.Unntak;
 import no.mesan.workmanship.yatzy.beregning.score.Beregner;
 import no.mesan.workmanship.yatzy.presentasjon.YatzyPresentasjonsmodellImpl;
 import no.mesan.workmanship.yatzy.view.YatzyPanel;
 
+@Unntak("Blåser i presentasjonskoden - her gjelder ingen av reglene")
 class Yatzy {
 	private Yatzy() {
 		try {
